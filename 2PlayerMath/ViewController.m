@@ -16,7 +16,15 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+//	
+//	Player *player1 = [[Player alloc] initWithLives:3 andScore:0];
+//	Player *player2 = [[Player alloc] initWithLives:3 andScore:0];
+	
+	GameModel *startGame = [[GameModel alloc] initWithPlayers:@[player1, player2]];
+	
+	
+
+	
 }
 
 - (void)didReceiveMemoryWarning {
