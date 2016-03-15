@@ -15,8 +15,12 @@
 
 @property (nonatomic) NSString *name;
 
+@property (nonatomic) NSInteger score;
 
-- (instancetype)initWithName:(NSString *)name andLives:(NSInteger)lives;
+@property (assign) BOOL lostTheGame;
+
+
+- (instancetype)initWithName:(NSString *)name score:(NSInteger)score andLives:(NSInteger)lives;
 
 - (void) loseALife;
 

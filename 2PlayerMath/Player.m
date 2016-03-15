@@ -10,12 +10,13 @@
 
 @implementation Player
 
-- (instancetype)initWithName:(NSString *)name andLives:(NSInteger)lives
+- (instancetype)initWithName:(NSString *)name score:(NSInteger)score andLives:(NSInteger)lives
 {
 	self = [super init];
 	if (self) {
 		_lives = lives;
 		_name = name;
+		_score = score;
 
 	}
 	return self;
@@ -23,12 +24,11 @@
 
 - (void) loseALife
 {
-// if self.lives = 0 -> currentPlayer lose games, else if incorrect answer self.lives =- 1,
-	
-	
 	self.lives =- 1;
 	
-	
+	if ((self.lives = 0)) {
+		self.lostTheGame = YES;
+	}
 }
 
 @end

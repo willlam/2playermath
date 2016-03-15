@@ -9,21 +9,28 @@
 #import <Foundation/Foundation.h>
 #import "Player.h"
 
+@class Player;
+
 @interface GameModel : NSObject
 
-@property (nonatomic) NSInteger currentPlayer;
+
+@property (nonatomic, strong) Player * currentPlayer;
+@property (nonatomic, strong) Player *player1;
+@property (nonatomic, strong) Player *player2;
+
+
 @property (nonatomic, strong) NSArray *playerList;
 @property (nonatomic, assign) int inputAnswer;
 @property (nonatomic, assign) int questionAnswer;
-@property (nonatomic) NSString *displayQuestion;
-@property (nonatomic, strong) Player *player1;
-@property (nonatomic, strong) Player *player2;
-@property 
 
-- (instancetype)initWithPlayers:(NSArray *)players andName:(NSString *)name;
+@property (nonatomic) NSString *displayQuestion;
+
+
+- (instancetype)initWithPlayers:(NSArray *)players;
 
 -(void) questionGenerator:(Player *)player;
 
-- (BOOL) answerCheck;
+
+- (BOOL) isCorrectAnswer;
 
 @end

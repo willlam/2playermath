@@ -13,18 +13,26 @@
 
 const int kMaxNumber = 20;
 
-- (instancetype)initWithPlayers:(NSArray *)players andName:(NSString *)name
+- (instancetype)initWithPlayers:(NSArray *)players
 {
 	self = [super init];
 	if (self) {
-		_player1 = [[Player alloc] initWithName:@"Player 1" andLives:3];
-		_player2 = [[Player alloc] initWithName:@"Player 2" andLives:3];
-		_currentPlayer = 0;
+		for (int i = 0; i < players.count; i++)  {
+			
+			if (i == 0) {
+				_player1 = players[i];
+			} else if (i == 1) {
+				_player2 = players[i];
+			}
+			
+		}
+	
+		_currentPlayer = _player1;
 	}
 	return self;
 }
 
--(void) questionGenerator:(Player *)player
+- (void) questionGenerator:(Player *)player
 {
 	int firstNumber = arc4random_uniform(kMaxNumber);
 	int secondNumber = arc4random_uniform(kMaxNumber);
@@ -40,7 +48,7 @@ const int kMaxNumber = 20;
 	
 }
 
-- (BOOL) answerCheck
+- (BOOL) isCorrectAnswer
 {
 	if ((self.questionAnswer = self.inputAnswer)) {
 		 NSLog(@"Correct!");
